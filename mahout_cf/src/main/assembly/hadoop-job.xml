@@ -1,0 +1,26 @@
+<assembly>
+	<id>job</id>
+	<formats>
+		<format>jar</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<dependencySets>
+		<dependencySet>
+			<unpack>false</unpack>
+			<scope>runtime</scope>
+			<useTransitiveFiltering>true</useTransitiveFiltering>
+			<outputDirectory>lib</outputDirectory>
+			<!-- exclude the hadoop core libraries because they are already on the 
+				cluster -->
+			<!-- <excludes> -->
+			<!-- <exclude>org.apache.hadoop:*</exclude> -->
+			<!-- </excludes> -->
+		</dependencySet>
+		<dependencySet>
+			<unpack>true</unpack>
+			<includes>
+				<include>${groupId}:${artifactId}</include>
+			</includes>
+		</dependencySet>
+	</dependencySets>
+</assembly>
